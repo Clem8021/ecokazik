@@ -1,94 +1,142 @@
-body {
-  font-family: 'Orbitron', sans-serif;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Orbitron:wght@700&display=swap');
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: #011627;
-  color: #fdfffc;
 }
 
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 40px 20px;
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #f7f7f7; /* fond gris très clair */
+  color: #333; /* texte sombre mais doux */
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
 }
 
-.hero {
-  background-color: #011627;
+/* Hero Section */
+.hero-section {
+  max-width: 800px;
   text-align: center;
-  padding: 80px 20px;
-  padding-bottom: 0;
-  margin-bottom: 0;
+  margin-bottom: 4rem;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.hero-section h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #555;
 }
 
 .btn-primary {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #2ec4b6;
-  color: #fdfffc;
-  border-radius: 5px;
+  background-color: #00ffcc;
+  color: #000;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
-.btn-primary:hover {
-  background-color: #2ec4b6;
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #00ccb3;
+  outline: none;
 }
 
-.hero, .why-choose {
-  margin: 0;
-  border: none;
+/* Services Section */
+.services {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
 }
 
-.why-choose {
-  background-color: #2ec4b6;
-  padding: 40px 20px;
+.service {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 2rem;
+  flex: 1 1 250px;
+  text-align: center;
+  color: #222;
+  transition: box-shadow 0.3s ease;
+}
+
+.service:hover {
+  box-shadow: 0 8px 20px rgba(0,255,204,0.3);
+}
+
+.service h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.service p {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Testimonials Section */
+.testimonials {
+  max-width: 700px;
+  margin-bottom: 4rem;
   text-align: center;
 }
 
-.why-choose ul {
-  list-style: none;
-  padding-left: 0;
+.testimonials h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #222;
 }
 
-.why-choose li {
-  margin-bottom: 12px;
-  font-size: 1.1rem;
+.testimonials blockquote {
+  font-style: italic;
+  color: #666;
+  border-left: 4px solid #00ffcc;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
 }
 
-.why-choose h2 {
-  color: #011627;
+.testimonials cite {
+  display: block;
+  font-weight: 600;
+  color: #444;
+  margin-top: 0.5rem;
 }
 
-.why-choose h2 .highlight {
-   font-size: 5rem;
-  font-weight: 900;
-  background: linear-gradient(90deg, #ff9f1c, #e71d36);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-}
-
+/* Call to Action Section */
 .cta {
-  background-color: #011627;
+  max-width: 800px;
   text-align: center;
-  padding: 60px 20px;
+  margin-bottom: 2rem;
 }
 
-.scroll-fade-right {
-  opacity: 0;
-  transform: translateX(50px); // glissement depuis la droite
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.scroll-fade-right.visible {
-  opacity: 1;
-  transform: translateX(0);
+.cta h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #222;
 }
