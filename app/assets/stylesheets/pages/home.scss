@@ -1,5 +1,17 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Orbitron:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+.header-banner {
+  width: 100%;
+  background-color: #f7f7f7; /* fond noir pour bien faire ressortir la lumière */
+  padding: 20rem 0;
+  text-align: center;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+}
 
 * {
   box-sizing: border-box;
@@ -12,7 +24,9 @@ body {
   background: #f7f7f7; /* fond gris très clair */
   color: #333; /* texte sombre mais doux */
   line-height: 1.6;
+  height: auto;
   min-height: 100vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

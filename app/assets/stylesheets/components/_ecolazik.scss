@@ -1,0 +1,80 @@
+/* Mot central : Ecolazik */
+.highlight-word.lightning-text {
+  display: flex;
+  justify-content: center;
+  gap: 0.5vw;
+  letter-spacing: 0.15em;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 8vw;
+  color: #ff0066;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.letter {
+  display: inline-block;
+  transform: translateY(-100px);
+  opacity: 0;
+  animation: dropIn 0.8s ease-out forwards;
+  font-size: 7vw;
+}
+
+/* Apparition progressive des lettres */
+.letter:nth-child(1) { animation-delay: 0.2s; }
+.letter:nth-child(2) { animation-delay: 0.4s; }
+.letter:nth-child(3) { animation-delay: 0.6s; }
+.letter:nth-child(4) { animation-delay: 0.8s; }
+.letter:nth-child(5) { animation-delay: 1.0s; }
+.letter:nth-child(6) { animation-delay: 1.2s; }
+.letter:nth-child(7) { animation-delay: 1.4s; }
+.letter:nth-child(8) { animation-delay: 1.6s; }
+
+/* Animations */
+@keyframes dropIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 4px #ff3388,
+      0 0 8px #ff3388,
+      0 0 12px #ff0066,
+      0 0 16px #ff0066,
+      0 0 20px #ff0066;
+  }
+  50% {
+    text-shadow:
+      0 0 6px #ff66aa,
+      0 0 12px #ff66aa,
+      0 0 18px #ff3399,
+      0 0 24px #ff3399,
+      0 0 30px #ff3399;
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .normal-text {
+    font-size: 8vw;
+  }
+
+  .highlight-word {
+    font-size: 12vw;
+  }
+}

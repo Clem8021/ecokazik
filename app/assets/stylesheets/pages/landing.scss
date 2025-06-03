@@ -1,0 +1,43 @@
+
+.landing-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  gap: 3vh;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+@keyframes lightning {
+  0%, 100% {
+    text-shadow: 0 0 20px #fff, 0 0 20px #0ff, 0 0 30px #0ff;
+  }
+  5% {
+    text-shadow: 0 0 80px #fff, 0 0 120px #0ff, 0 0 180px #0ff;
+  }
+  10% {
+    text-shadow: 0 0 20px #fff, 0 0 20px #0ff, 0 0 30px #0ff;
+  }
+  15% {
+    text-shadow: 0 0 100px #fff, 0 0 160px #0ff;
+  }
+}
+
+.lightning-text {
+  animation: lightning 2s infinite ease-in-out;
+  color: #0ff; /* forcer la couleur claire */
+  font-size: 8vw; /* augmenter la taille pour l'effet */
+  font-weight: 700;
+}
+
+/* Lignes normales */
+.normal-text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 6vw;
+  font-weight: 700;
+  color: #222222;
+  letter-spacing: 0.02em;
+}
