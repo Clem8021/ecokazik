@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "home/index"
   get "landing/index"
   get "dashboard/show"
   get "badges/index"
@@ -17,6 +18,6 @@ Rails.application.routes.draw do
   get "pages/home"
   devise_for :users
   get "up" => "rails/health#show", as: :rails_health_check
-  root "landing#index"      # Page temporaire / d’attente
+  root "landing#index"
   get "home", to: "home#index"
 end
