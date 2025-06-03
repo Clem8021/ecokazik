@@ -1,0 +1,104 @@
+@import "variables";
+
+body {
+  background: radial-gradient(ellipse at center, #000 40%, #0ff 100%);
+  background-size: 400% 400%;
+  animation: electricPulse 5s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #ffffff, #00ffff, transparent);
+  opacity: 0;
+  z-index: 100;
+  animation: lightningFlash 2s ease-out forwards;
+  pointer-events: none;
+}
+
+.lightning-flash {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 100vh;
+  background: linear-gradient(to bottom, #ffffff, #00ffff, transparent);
+  opacity: 0;
+  z-index: 100;
+  transform: translate(-50%, -50%) scaleY(1.2);
+  animation: flashStrike 2s ease-out forwards;
+  box-shadow:
+    0 0 20px #ffffff,
+    0 0 40px #00ffff,
+    0 0 60px #00ffff;
+  pointer-events: none;
+}
+
+@keyframes flashStrike {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scaleY(1.2); }
+  5%   { opacity: 1; transform: translate(-50%, -50%) scaleY(1.3); }
+  10%  { opacity: 0.8; }
+  20%  { opacity: 0.4; }
+  100% { opacity: 0; transform: translate(-50%, -50%) scaleY(1.2); }
+}
+
+.landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100vw;
+  text-align: center;
+}
+
+.landing-text {
+  display: inline-block;
+}
+
+.landing-text span:not(.letter):not(.highlight-word) {
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 4rem;
+  font-weight: bold;
+  color: $primary-color;
+  text-shadow: 0 0 10px $primary-color;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 1.5s forwards ease-out;
+}
+
+.landing-text span:hover {
+  color: #ffffff;
+  text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+  cursor: default;
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+.highlight-word {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.letter {
+  opacity: 1;
+  transform: translateY(-100px);
+  animation: dropIn 0.8s forwards ease-out;
+  animation-fill-mode: forwards;
+  font-size: 5rem;
+  color: $highlight-color;
+  text-shadow: 0 0 10px lighten($highlight-color, 10%);
+}
+
+// apparition progressive des lettres
+@for $i from 1 through 8 {
+  .letter:nth-child(#{$i}) {
+    animation-delay: #{($i * 0.2)}s;
+  }
+}

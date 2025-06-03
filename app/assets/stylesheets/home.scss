@@ -1,0 +1,142 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Orbitron:wght@700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #f7f7f7; /* fond gris très clair */
+  color: #333; /* texte sombre mais doux */
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Hero Section */
+.hero-section {
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.hero-section h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.btn-primary {
+  background-color: #00ffcc;
+  color: #000;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #00ccb3;
+  outline: none;
+}
+
+/* Services Section */
+.services {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.service {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 2rem;
+  flex: 1 1 250px;
+  text-align: center;
+  color: #222;
+  transition: box-shadow 0.3s ease;
+}
+
+.service:hover {
+  box-shadow: 0 8px 20px rgba(0,255,204,0.3);
+}
+
+.service h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.service p {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Testimonials Section */
+.testimonials {
+  max-width: 700px;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.testimonials blockquote {
+  font-style: italic;
+  color: #666;
+  border-left: 4px solid #00ffcc;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.testimonials cite {
+  display: block;
+  font-weight: 600;
+  color: #444;
+  margin-top: 0.5rem;
+}
+
+/* Call to Action Section */
+.cta {
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cta h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
