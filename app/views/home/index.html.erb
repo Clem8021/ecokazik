@@ -1,65 +1,153 @@
-<<<<<<< HEAD
-<div class="header-banner">
-  <span class="highlight-word">
-    <span class="letter">E</span>
-    <span class="letter">c</span>
-    <span class="letter">o</span>
-    <span class="letter">l</span>
-    <span class="letter">a</span>
-    <span class="letter">z</span>
-    <span class="letter">i</span>
-    <span class="letter">k</span>
-  </span>
-</div>
-
-=======
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ecolazik – École de musique à Amiens</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
-</head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <%= link_to "ECOLAZIK", home_index_path, class: "logo-link highlight-word lightning-text small" %>
+      <ul class="nav-links">
+        <li><a href="#hero">Accueil</a></li>
+        <li><a href="#services">Pourquoi Ecolazik ?</a></li>
+        <li><a href="#testimonials">Ce que nos élèves en disent</a></li>
+        <li><a href="#cta">Envie d’essayer ?</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- Hero Section -->
->>>>>>> 45590974077544e77107f2205fa6b3354410267f
-  <header class="hero-section">
-    <h1>Apprenez la musique à votre rythme</h1>
-    <p>Des cours flexibles et personnalisés à Amiens</p>
-    <a href="/contact" class="btn-primary">Contactez-nous</a>
+  <header class="hero-section fade-in" id="hero">
+    <div class="container hero-text">
+      <h1>Apprenez la musique à votre rythme</h1>
+      <p>Des cours flexibles et personnalisés à Amiens</p>
+      <a href="#cta" class="btn-primary">Contactez-nous</a>
+    </div>
   </header>
 
   <!-- Services Section -->
-  <section class="services">
-    <div class="service">
-      <h2>Flexibilité</h2>
-      <p>Réservez vos cours selon votre emploi du temps, en toute liberté.</p>
-    </div>
-    <div class="service">
-      <h2>Qualité pédagogique</h2>
-      <p>Des professeurs passionnés et expérimentés dans chaque discipline.</p>
-    </div>
-    <div class="service">
-      <h2>Ambiance conviviale</h2>
-      <p>Un cadre chaleureux pour apprendre avec plaisir et motivation.</p>
+  <section class="services" id="services">
+      <div class="container services-grid">
+        <div class="service">
+        <img src="<%= asset_path('flexibilite.png') %>" alt="Flexibilité" class="service-icon">
+        <h2>Flexibilité</h2>
+        <p>Réservez vos cours selon votre emploi du temps, en toute liberté.</p>
+      </div>
+
+      <div class="service">
+        <img src="<%= asset_path('professeur.png') %>" alt="Qualité pédagogique" class="service-icon">
+        <h2>Qualité pédagogique</h2>
+        <p>Des professeurs passionnés et expérimentés dans chaque discipline.</p>
+      </div>
+
+      <div class="service">
+        <img src="<%= asset_path('groupe.png') %>" alt="Ambiance conviviale" class="service-icon">
+        <h2>Ambiance conviviale</h2>
+        <p>Un cadre chaleureux pour apprendre avec plaisir et motivation.</p>
+      </div>
     </div>
   </section>
 
   <!-- Testimonials Section -->
-  <section class="testimonials">
-    <h2>Ce que disent nos élèves</h2>
-    <blockquote>
-      <p>"Une expérience musicale enrichissante et flexible. Parfait pour mon emploi du temps !" </p>
-      <cite>– Marie, élève en piano</cite>
-    </blockquote>
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <h2>Ce que disent nos élèves</h2>
+      <blockquote>
+        <p>"Une expérience musicale enrichissante et flexible. Parfait pour mon emploi du temps !"</p>
+        <cite>– Marie, élève en piano</cite>
+      </blockquote>
+    </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="cta">
-    <h2>Prêt à commencer votre aventure musicale ?</h2>
-    <a href="/contact" class="btn-primary">Réservez un cours</a>
+  <section class="cta" id="cta">
+    <div class="container">
+      <h2>Prêt à commencer votre aventure musicale ?</h2>
+      <a href="/contact" class="btn-primary">Réservez un cours</a>
+    </div>
   </section>
+
+ <footer class="site-footer">
+  <div class="container footer-content">
+    <div class="footer-logo">
+      <h3>ECOLAZIK</h3>
+      <p>Apprenez la musique avec passion.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#hero">Accueil</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Témoignages</a></li>
+        <li><a href="#cta">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><i class="fas fa-envelope"></i> contact@ecolazik.fr</p>
+      <p><i class="fas fa-phone"></i> 06 12 34 56 78</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 ECOLAZIK. Tous droits réservés.</p>
+  </div>
+</footer>
+  <!-- JS pour effet fondu -->
+  <script>
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 20);
+    });
+  </script>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 20);
+    });
+
+    // Ajout de l'effet de translation légère
+    const heroText = document.querySelector(".hero-text");
+
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      heroText.style.transform = `translateY(${scrollY * 0.3}px)`;
+    });
+  </script>
+
+    <script>
+    const navbar = document.getElementById("navbar");
+    const heroText = document.querySelector(".hero-text");
+
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 20);
+
+      // Parallaxe sur le texte
+      const scrollY = window.scrollY;
+      heroText.style.transform = `translateY(${scrollY * 0.3}px)`;
+    });
+  </script>
+
+  <script>
+    const services = document.querySelectorAll('.service');
+
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+
+      services.forEach((el, index) => {
+        const boxTop = el.getBoundingClientRect().top;
+
+        if (boxTop < triggerBottom) {
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, index * 200);
+        } else {
+          el.classList.remove('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+    window.addEventListener('hashchange', revealOnScroll);// Pour l'affichage si déjà visible
+  </script>
 </body>
-</html>
