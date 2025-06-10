@@ -15,6 +15,21 @@
   transform-style: preserve-3d;
 }
 
+.highlight-word.lightning-text.small {
+  display: flex;
+  justify-content: center;
+  gap: 0.5vw;
+  letter-spacing: 0.15em;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2vw;
+  color: #ff0066;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
 .letter {
   display: inline-block;
   transform: translateY(-100px);
