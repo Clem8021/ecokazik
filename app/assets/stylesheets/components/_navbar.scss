@@ -1,11 +1,14 @@
 .navbar {
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(220, 255, 250, 0.95));
+  /* tu peux ajuster les couleurs */
+  box-shadow: none;
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
-  transition: all 0.3s ease;
-  box-shadow: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  height: 150px;
 }
 
 .navbar.scrolled {
@@ -17,19 +20,32 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 0;
 }
 
 .logo-link {
   text-decoration: none;
   color: inherit; /* Garde la couleur du texte si nécessaire */
- transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
+  line-height: 0; /* Supprime espace vertical */
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .logo-link:hover {
   color: #00ffcc;
   text-shadow: 0 0 8px #00ffcc, 0 0 12px #00ffcc;
   transform: scale(1.05);
+}
+
+.logo-image {
+  height: 6em; /* taille du logo */
+  width: auto;
+  display: block; /* supprime l’espace bas lié aux images inline */
+  margin: 0;
+  padding: 0;
+  transform: translateY(2rem);
 }
 
 .logo {
@@ -43,15 +59,34 @@
   list-style: none;
   display: flex;
   gap: 2rem;
+  margin: 0;  /* au cas où */
+  padding: 0;
 }
-
 .nav-links li a {
+  position: relative;
   text-decoration: none;
   font-weight: 600;
   color: #222;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: "";
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: #00ccb3;
+  transition: width 0.3s ease;
 }
 
 .nav-links li a:hover {
   color: #00ccb3;
+  text-decoration: none;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
 }

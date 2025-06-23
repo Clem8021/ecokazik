@@ -2,7 +2,9 @@
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
-      <%= link_to "ECOLAZIK", home_index_path, class: "logo-link highlight-word lightning-text small" %>
+      <%= link_to home_index_path, class: "logo-link highlight-word lightning-text small" do %>
+        <%= image_tag "logo.png", alt: "ECOLAZIK", class: "logo-image" %>
+      <% end %>
       <ul class="nav-links">
         <li><a href="#hero">Accueil</a></li>
         <li><a href="#services">Pourquoi Ecolazik ?</a></li>
@@ -17,7 +19,7 @@
     <div class="container hero-text">
       <h1>Apprenez la musique à votre rythme</h1>
       <p>Des cours flexibles et personnalisés à Amiens</p>
-      <a href="#cta" class="btn-primary">Contactez-nous</a>
+      <a href="mailto:ecolazik@gmail.com" class="btn-primary">Contactez-nous</a>
     </div>
   </header>
 
@@ -59,7 +61,7 @@
   <section class="cta" id="cta">
     <div class="container">
       <h2>Prêt à commencer votre aventure musicale ?</h2>
-      <a href="/contact" class="btn-primary">Réservez un cours</a>
+      <a href="mailto:ecolazik@gmail.com" class="btn-primary">Réservez un cours</a>
     </div>
   </section>
 
@@ -74,16 +76,15 @@
       <h4>Navigation</h4>
       <ul>
         <li><a href="#hero">Accueil</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#testimonials">Témoignages</a></li>
-        <li><a href="#cta">Contact</a></li>
+        <li><a href="#services">Pourquoi Ecolazik ?</a></li>
+        <li><a href="#testimonials">Ce que nos élèves en disent</a></li>
+        <li><a href="#cta">Envie d'essayer ?</a></li>
       </ul>
     </div>
 
     <div class="footer-contact">
       <h4>Contact</h4>
-      <p><i class="fas fa-envelope"></i> contact@ecolazik.fr</p>
-      <p><i class="fas fa-phone"></i> 06 12 34 56 78</p>
+      <p><i class="fas fa-envelope"></i> ecolazik@gmail.com</p>
     </div>
   </div>
 
@@ -128,26 +129,27 @@
   </script>
 
   <script>
-    const services = document.querySelectorAll('.service');
+    document.addEventListener("DOMContentLoaded", () => {
+      const services = document.querySelectorAll('.service');
 
-    const revealOnScroll = () => {
-      const triggerBottom = window.innerHeight * 0.85;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const el = entry.target;
 
-      services.forEach((el, index) => {
-        const boxTop = el.getBoundingClientRect().top;
-
-        if (boxTop < triggerBottom) {
-          setTimeout(() => {
+          if (entry.isIntersecting) {
             el.classList.add('visible');
-          }, index * 200);
-        } else {
-          el.classList.remove('visible');
-        }
+          } else {
+            el.classList.remove('visible'); // important pour rejouer
+          }
+        });
+      }, {
+        threshold: 0.2
       });
-    };
 
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-    window.addEventListener('hashchange', revealOnScroll);// Pour l'affichage si déjà visible
+      services.forEach((el, i) => {
+        el.style.transitionDelay = `${i * 200}ms`; // effet cascade via CSS
+        observer.observe(el);
+      });
+    });
   </script>
 </body>
