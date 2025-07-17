@@ -1,0 +1,19 @@
+.back-home-wrapper {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.btn-back-home {
+  display: inline-block;
+  background-color: #00b8a9;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-back-home:hover {
+  background-color: #008f83;
+}

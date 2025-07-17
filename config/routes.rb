@@ -1,6 +1,26 @@
 Rails.application.routes.draw do
-  get "home/index"
-  get "landing/index"
+  get "testimonials/index"
+  # Pages statiques
+  root "landing#index"
+  get "home", to: "home#index"
+  get "pages/home"
+
+  # Devise (authentification)
+  devise_for :users
+
+  # Professeurs : partie publique
+  resources :teachers, only: [:index, :show]
+
+  # Admin : réservé aux admins
+  namespace :admin do
+    get "users/index"
+    get "users/update"
+    resources :teachers, only: [:index, :new, :create]
+    resources :users, only: [:index, :update]
+    # Tu peux ajouter ici d’autres ressources admin plus tard
+  end
+
+  # Dashboard et autres pages
   get "dashboard/show"
   get "badges/index"
   get "events/index"
@@ -13,11 +33,7 @@ Rails.application.routes.draw do
   get "appointments/new"
   get "appointments/create"
   get "appointments/destroy"
-  get "instruments/index"
-  get "instruments/show"
-  get "pages/home"
-  devise_for :users
+
+  # Health check
   get "up" => "rails/health#show", as: :rails_health_check
-  root "landing#index"
-  get "home", to: "home#index"
 end

@@ -1,25 +1,10 @@
 <body>
-  <!-- Navbar -->
-  <nav class="navbar" id="navbar">
-    <div class="container nav-container">
-      <%= link_to home_index_path, class: "logo-link highlight-word lightning-text small" do %>
-        <%= image_tag "logo.png", alt: "ECOLAZIK", class: "logo-image" %>
-      <% end %>
-      <ul class="nav-links">
-        <li><a href="#hero">Accueil</a></li>
-        <li><a href="#services">Pourquoi Ecolazik ?</a></li>
-        <li><a href="#testimonials">Ce que nos élèves en disent</a></li>
-        <li><a href="#cta">Envie d’essayer ?</a></li>
-      </ul>
-    </div>
-  </nav>
-
   <!-- Hero Section -->
   <header class="hero-section fade-in" id="hero">
     <div class="container hero-text">
       <h1>Apprenez la musique à votre rythme</h1>
       <p>Des cours flexibles et personnalisés à Amiens</p>
-      <a href="mailto:ecolazik@gmail.com" class="btn-primary">Contactez-nous</a>
+      <%= button_to "Choisis ton instrument", teachers_path, method: :get, class: "btn-primary" %>
     </div>
   </header>
 
@@ -29,7 +14,7 @@
         <div class="service">
         <img src="<%= asset_path('flexibilite.png') %>" alt="Flexibilité" class="service-icon">
         <h2>Flexibilité</h2>
-        <p>Réservez vos cours selon votre emploi du temps, en toute liberté.</p>
+        <p>Réserve ton cours selon ton emploi du temps, en toute liberté.</p>
       </div>
 
       <div class="service">
@@ -50,18 +35,29 @@
   <section class="testimonials" id="testimonials">
     <div class="container">
       <h2>Ce que disent nos élèves</h2>
-      <blockquote>
-        <p>"Une expérience musicale enrichissante et flexible. Parfait pour mon emploi du temps !"</p>
-        <cite>– Marie, élève en piano</cite>
-      </blockquote>
+      <div class="testimonial-slider">
+        <div class="testimonial-track">
+          <% @testimonials.each do |testimonial| %>
+            <div class="testimonial-slide">
+              <blockquote>
+                <p><%= testimonial.content %></p>
+                <cite>– <%= testimonial.author %></cite>
+              </blockquote>
+            </div>
+          <% end %>
+        </div>
+        <button class="slider-btn prev">❮</button>
+        <button class="slider-btn next">❯</button>
+      </div>
+      <div class="slider-dots"></div>
     </div>
   </section>
 
   <!-- CTA Section -->
   <section class="cta" id="cta">
     <div class="container">
-      <h2>Prêt à commencer votre aventure musicale ?</h2>
-      <a href="mailto:ecolazik@gmail.com" class="btn-primary">Réservez un cours</a>
+      <h2>Prêt à commencer ton aventure musicale ?</h2>
+      <a href="mailto:ecolazik@gmail.com" class="btn-primary">Réserve un cours</a>
     </div>
   </section>
 
@@ -69,7 +65,7 @@
   <div class="container footer-content">
     <div class="footer-logo">
       <h3>ECOLAZIK</h3>
-      <p>Apprenez la musique avec passion.</p>
+      <p>Apprends la musique avec passion.</p>
     </div>
 
     <div class="footer-links">
@@ -85,6 +81,7 @@
     <div class="footer-contact">
       <h4>Contact</h4>
       <p><i class="fas fa-envelope"></i> ecolazik@gmail.com</p>
+      <p><i class="fas fa-home"></i> 2, rue Flatters  80000 Amiens</p>
     </div>
   </div>
 
@@ -93,13 +90,6 @@
   </div>
 </footer>
   <!-- JS pour effet fondu -->
-  <script>
-    const navbar = document.getElementById("navbar");
-    window.addEventListener("scroll", () => {
-      navbar.classList.toggle("scrolled", window.scrollY > 20);
-    });
-  </script>
-
   <script>
     const navbar = document.getElementById("navbar");
     window.addEventListener("scroll", () => {

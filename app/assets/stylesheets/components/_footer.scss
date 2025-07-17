@@ -1,8 +1,10 @@
+/* FOOTER GLOBAL */
 .site-footer {
   background-color: #111;
   color: #eee;
   padding: 4rem 2rem 2rem;
   font-size: 0.95rem;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .footer-content {
@@ -12,40 +14,84 @@
   max-width: 1200px;
   margin: 0 auto;
   gap: 2rem;
+  text-align: left;
 }
 
+/* LOGO ET DESCRIPTION */
 .footer-logo h3 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.75rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  color: #00ffcc;
+  letter-spacing: 1px;
 }
 
+.footer-logo p {
+  color: #bbb;
+  font-size: 0.95rem;
+  max-width: 250px;
+}
+
+/* TITRES DES SECTIONS */
+.footer-links h4,
+.footer-contact h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* LIENS */
 .footer-links ul {
   list-style: none;
-  padding: 10px 0;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-links li {
-  margin-bottom: 0,5rem;
+  margin-bottom: 0.6rem;
 }
 
 .footer-links a {
   color: #ccc;
   text-decoration: none;
-  transition: color 0.3s ease;
-  margin-bottom: 10px;
+  font-size: 0.95rem;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .footer-links a:hover {
   color: #00ffcc;
+  text-shadow: 0 0 8px #00ffcc;
 }
 
-.footer-contact i {
-  margin-right: 0.5rem;
+/* CONTACT */
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  color: #bbb;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-contact p i {
+  margin-right: 0.6rem;
   color: #00ffcc;
-  padding: 10px 0;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
 }
 
+.footer-contact p:hover {
+  color: #fff;
+}
+
+.footer-contact p:hover i {
+  color: #ff5722;
+}
+
+/* BAS DU FOOTER */
 .footer-bottom {
   text-align: center;
   padding-top: 2rem;
@@ -53,4 +99,17 @@
   margin-top: 2rem;
   font-size: 0.85rem;
   color: #aaa;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-logo p {
+    max-width: none;
+  }
 }

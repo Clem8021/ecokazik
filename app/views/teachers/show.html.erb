@@ -1,0 +1,7 @@
+<section class="teacher-profile">
+  <%= image_tag @teacher.photo_url, class: "teacher-photo" %>
+  <h2><%= @teacher.name %></h2>
+  <p class="instrument"><%= @teacher.instrument %></p>
+  <p class="bio"><%= @teacher.bio %></p>
+  <%= link_to "Retour à l'équipe", teachers_path, class: "btn-primary" %>
+</section>

@@ -1,0 +1,18 @@
+ <div class="container headers">
+  <h1>Nos Profs</h1>
+  <p>Chaque professeur apporte une touche unique à l'apprentissage de la musique.</p>
+</div>
+<section class="teachers-gallery-grid">
+  <% @teachers.each do |teacher| %>
+    <% if teacher.photo.attached? %>
+      <div class="teacher-tile">
+        <%= image_tag url_for(teacher.photo), class: "teacher-photo-tile" if teacher.photo.attached? %>
+        <div class="teacher-overlay">
+          <h2><%= teacher.first_name %> <%= teacher.last_name %></h2>
+          <p><%= teacher.instrument %></p>
+          <p><%= teacher.superpower %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</section>

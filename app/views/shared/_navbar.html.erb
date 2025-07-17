@@ -1,0 +1,26 @@
+<% on_homepage = current_page?(root_path) %>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-container">
+    <%= link_to home_path, class: "logo-link highlight-word lightning-text small" do %>
+      <%= image_tag "logo.png", alt: "ECOLAZIK", class: "logo-image" %>
+    <% end %>
+
+    <ul class="nav-links">
+      <% if on_homepage %>
+        <li><a href="#hero">Accueil</a></li>
+        <li><a href="#services">Pourquoi Ecolazik ?</a></li>
+        <li><a href="#testimonials">Ce que nos élèves en disent</a></li>
+      <% else %>
+        <li><%= link_to "Accueil", home_path(anchor: "hero") %></li>
+        <li><%= link_to "Pourquoi Ecolazik ?", home_path(anchor: "services") %></li>
+        <li><%= link_to "Ce que nos élèves en disent", home_path(anchor: "testimonials") %></li>
+        <li><%= link_to "Envie d’essayer ?", home_path(anchor: "cta") %></li>
+      <% end %>
+
+      <% if current_user&.admin? %>
+        <li><%= link_to "Admin Utilisateurs", admin_users_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
