@@ -6,7 +6,14 @@
       <%= image_tag "logo.png", alt: "ECOLAZIK", class: "logo-image" %>
     <% end %>
 
-    <ul class="nav-links">
+    <!-- Bouton burger pour mobile -->
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
       <% if on_homepage %>
         <li><a href="#hero">Accueil</a></li>
         <li><a href="#services">Pourquoi Ecolazik ?</a></li>

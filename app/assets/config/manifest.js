@@ -4,3 +4,4 @@
     //= link controllers/application.js
       //= link controllers/index.js
   //= link controllers/testimonials.js
+  //= link controllers/menu_burger.js

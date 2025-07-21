@@ -9,6 +9,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
@@ -18,7 +19,7 @@ body {
   line-height: 1.6;
 }
 
-/* Layout container */
+/* Container layout */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -26,7 +27,9 @@ body {
   margin: 0 auto;
 }
 
-/* Hero Section */
+/* =============================
+   HERO SECTION
+============================= */
 .hero-section {
   min-height: 100vh;
   padding: 0;
@@ -36,8 +39,6 @@ body {
   background-attachment: fixed;
   color: #fff;
   position: relative;
-  z-index: 1;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,14 +50,13 @@ body {
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); // overlay sombre
+  background: rgba(0, 0, 0, 0.55); /* Overlay plus sombre */
   z-index: -1;
 }
 
 .hero-section .container {
-  width: 100%;
-  max-width: none;
-  padding: 0 2rem;
+  max-width: 900px;
+  padding: 0 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,15 +65,17 @@ body {
 
 .hero-section h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 3.2rem;
+  font-size: clamp(2rem, 6vw, 3.5rem);
   margin-bottom: 1rem;
   color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
 .hero-section p {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   color: #eee;
   margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero-section .btn-primary {
@@ -83,19 +85,18 @@ body {
   border: none;
   border-radius: 6px;
   font-weight: bold;
+  font-size: 1.1rem;
   transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #00c1a8;
-  }
+  text-decoration: none;
 }
 
-.hero-text {
-  transition: transform 0.2s ease-out;
-  will-change: transform;
+.hero-section .btn-primary:hover {
+  background-color: #00c1a8;
 }
 
-/* Button */
+/* =============================
+   BUTTONS
+============================= */
 .btn-primary {
   background-color: #00ffcc;
   color: #000;
@@ -115,60 +116,45 @@ body {
   outline: none;
 }
 
-/* Services Section */
+/* =============================
+   SERVICES SECTION
+============================= */
 .services {
-  min-height: 70vh;
+  padding: 4rem 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
 }
 
 .services-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  justify-content: center;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Carte service */
 .service {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 2rem;
-  flex: 1 1 300px;
-  max-width: 320px;
   text-align: center;
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
-  transition-delay: 0s;
 }
 
-.service-icon {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 1rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Apparition */
 .service.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Effet hover */
 .service:hover {
   box-shadow: 0 8px 20px rgba(0, 255, 204, 0.3);
 }
 
-/* Icône ou image */
 .service img,
 .service-icon {
   width: 60px;
@@ -176,34 +162,22 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Titre */
 .service h2 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   margin-bottom: 1rem;
   color: #00b8a9;
 }
 
-/* Texte */
 .service p {
   font-size: 1rem;
   color: #444;
   line-height: 1.6;
 }
 
-/* Animation keyframes (optionnel si tu veux l'utiliser via JS) */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* CTA Section */
+/* =============================
+   CTA SECTION
+============================= */
 .cta {
   padding: 6rem 0;
   text-align: center;
@@ -211,23 +185,30 @@ body {
 
 .cta h2 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   margin-bottom: 2rem;
 }
 
-/* Responsive */
+/* =============================
+   RESPONSIVE
+============================= */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
   .hero-section h1 {
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
   }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 1rem;
+  .services {
+    padding: 3rem 1rem;
   }
+}
 
-  .services-grid {
-    flex-direction: column;
-    gap: 2rem;
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1300px;
+  }
+  .hero-section h1 {
+    font-size: 4rem;
   }
 }

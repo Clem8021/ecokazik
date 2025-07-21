@@ -89,3 +89,34 @@
 .nav-links li a:hover::after {
   width: 100%;
 }
+
+/* --- Burger menu --- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  transition: 0.3s ease;
+}
+
+/* --- Responsive --- */
+@media (min-width: 769px) {
+  .nav-links {
+    position: static;
+    transform: none !important;
+    background: transparent;
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .menu-toggle {
+    display: none !important;
+  }
+}

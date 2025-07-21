@@ -19,6 +19,7 @@ gem "thruster", require: false
 #my gems
 gem "sprockets-rails"
 gem "sassc-rails"
+gem 'rails_12factor'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
