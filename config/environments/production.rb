@@ -50,7 +50,8 @@ Rails.application.configure do
 
   # Ne pas dumper le schéma après migration
   config.active_record.dump_schema_after_migration = false
+  config.hosts << "ecolazik.com"
+config.hosts << "www.ecolazik.com"
 
-  # (Facultatif) log plus léger
-  # config.log_level = :info
+config.action_mailer.default_url_options = { host: "ton-domaine.com", protocol: "https" }
 end
