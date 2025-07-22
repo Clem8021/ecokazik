@@ -22,7 +22,7 @@ Rails.application.configure do
 
   # SSL (Heroku : ok)
   config.assume_ssl = true
-  config.force_ssl  = true
+  config.force_ssl  = false
 
   # Logs
   config.log_tags = [ :request_id ]
