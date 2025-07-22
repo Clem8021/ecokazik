@@ -2,6 +2,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   <<: *default
@@ -14,8 +15,13 @@ test:
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+# Base de données pour Solid Queue (Rails 8)
 queue:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+
+# Base de données pour Action Cable (si jamais tu l'utilises)
+cable:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
