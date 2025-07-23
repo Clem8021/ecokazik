@@ -1,18 +1,21 @@
-# Puma configuration file for Render
+workers Integer(ENV['WEB_CONCURRENCY'] || 2)
+threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 5)
+threads threads_count, threads_count
 
-max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
-min_threads_count = ENV.fetch("RAILS_MIN_THREADS") { max_threads_count }
-threads min_threads_count, max_threads_count
-
-port        ENV.fetch("PORT") { 3000 }
-
-environment ENV.fetch("RAILS_ENV") { "development" }
-
-# Nombre de workers (processus) - adapté aux serveurs avec plusieurs cœurs
-# Render recommande de démarrer avec 2 workers si ton plan le permet
-workers ENV.fetch("WEB_CONCURRENCY") { 2 }
-
-# Preload pour améliorer les performances en production
 preload_app!
 
-plugin :tmp_restart
+# Support IPv6 by binding to host `::` instead of `0.0.0.0`
+port(ENV['PORT'] || 3000, "::")
+
+# Turn off keepalive support for better long tails response time with Router 2.0
+# Remove this line when https://github.com/puma/puma/issues/3487 is closed, and the fix is released
+enable_keep_alives(false) if respond_to?(:enable_keep_alives)
+
+rackup      DefaultRackup if defined?(DefaultRackup)
+environment ENV['RACK_ENV'] || 'development'
+
+on_worker_boot do
+  # Worker-specific setup for Rails 4.1 to 5.2, after 5.2 it's not needed
+  # See: https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server#on-worker-boot
+  ActiveRecord::Base.establish_connection
+end
