@@ -53,5 +53,8 @@ Rails.application.configure do
   config.hosts << "ecolazik.com"
   config.hosts << "www.ecolazik.com"
 
+  config.assets.compile = false
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+
   config.action_mailer.default_url_options = { host: "ecolazik.com", protocol: "https" }
 end
