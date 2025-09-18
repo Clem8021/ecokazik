@@ -101,6 +101,24 @@
   color: #aaa;
 }
 
+.footer-socials {
+  h4 {
+    color: #fff;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  a {
+    color: #ccc;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #00ffcc; /* la couleur d'accent de ton site */
+  }
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .footer-content {

@@ -4,4 +4,7 @@
     //= link controllers/application.js
       //= link controllers/index.js
   //= link controllers/testimonials.js
-  //= link controllers/menu_burger.js
+  //= link controllers/popup_controller.js
+  //= link controllers/navbar_controller.js
+  //= link controllers/services_controller.js
+  //= link controllers/menu_burger_controller.js

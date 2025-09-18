@@ -1,30 +1,34 @@
 <% on_homepage = current_page?(root_path) %>
 
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar" data-controller="menu-burger">
   <div class="container nav-container">
     <%= link_to home_path, class: "logo-link highlight-word lightning-text small" do %>
       <%= image_tag "logo.png", alt: "ECOLAZIK", class: "logo-image" %>
     <% end %>
 
-    <!-- Bouton burger pour mobile -->
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <!-- Bouton Burger -->
+    <button
+      type="button"
+      class="menu-toggle"
+      data-menu-burger-target="toggle"
+      data-action="click->menu-burger#toggle"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-    <ul class="nav-links" id="nav-links">
+    <!-- Liens -->
+    <ul class="nav-links" id="nav-links" data-menu-burger-target="links">
       <% if on_homepage %>
         <li><a href="#hero">Accueil</a></li>
-        <li><a href="#services">Pourquoi Ecolazik ?</a></li>
-        <li><a href="#testimonials">Ce que nos élèves en disent</a></li>
+        <li><a href="#services">Nos atouts</a></li>
+        <li><a href="#testimonials">Avis</a></li>
       <% else %>
         <li><%= link_to "Accueil", home_path(anchor: "hero") %></li>
-        <li><%= link_to "Pourquoi Ecolazik ?", home_path(anchor: "services") %></li>
-        <li><%= link_to "Ce que nos élèves en disent", home_path(anchor: "testimonials") %></li>
+        <li><%= link_to "Nos atouts", home_path(anchor: "services") %></li>
+        <li><%= link_to "Avis", home_path(anchor: "testimonials") %></li>
         <li><%= link_to "Envie d’essayer ?", home_path(anchor: "cta") %></li>
       <% end %>
-
       <% if current_user&.admin? %>
         <li><%= link_to "Admin Utilisateurs", admin_users_path %></li>
       <% end %>

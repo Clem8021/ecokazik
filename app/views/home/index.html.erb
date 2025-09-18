@@ -1,15 +1,15 @@
-<body>
+<body data-controller="navbar">
   <!-- Hero Section -->
   <header class="hero-section fade-in" id="hero">
-    <div class="container hero-text">
+    <div class="container hero-text" data-navbar-target="heroText">
       <h1>Apprends la musique à ton rythme</h1>
       <p>Des cours flexibles et personnalisés à Amiens</p>
-      <a href="mailto:ecolazik@gmail.com" class="btn-primary">Réserve un cours</a>
+      <a href="mailto:ecolazik@gmail.com" class="btn-primary">Réserve ton cours d'essai</a>
     </div>
   </header>
 
   <!-- Services Section -->
-  <section class="services" id="services">
+  <section class="services" id="services" data-controller="services">
       <div class="container services-grid">
         <div class="service">
         <img src="<%= asset_path('flexibilite.png') %>" alt="Flexibilité" class="service-icon">
@@ -23,7 +23,7 @@
         <p>Des professeurs passionnés et expérimentés dans chaque discipline.</p>
       </div>
 
-      <div class="service">
+      <div class="service" data-services-target="service">
         <img src="<%= asset_path('groupe.png') %>" alt="Ambiance conviviale" class="service-icon">
         <h2>Ambiance conviviale</h2>
         <p>Un cadre chaleureux pour apprendre avec plaisir et motivation.</p>
@@ -57,89 +57,9 @@
   <section class="cta" id="cta">
     <div class="container">
       <h2>Prêt à commencer ton aventure musicale ?</h2>
-      <a href="mailto:ecolazik@gmail.com" class="btn-primary">Réserve un cours</a>
+      <a href="mailto:ecolazik@gmail.com" class="btn-primary">Réserve ton cours d'essai</a>
     </div>
   </section>
 
- <footer class="site-footer">
-  <div class="container footer-content">
-    <div class="footer-logo">
-      <h3>ECOLAZIK</h3>
-      <p>Apprends la musique avec passion.</p>
-    </div>
-
-    <div class="footer-links">
-      <h4>Navigation</h4>
-      <ul>
-        <li><a href="#hero">Accueil</a></li>
-        <li><a href="#services">Pourquoi Ecolazik ?</a></li>
-        <li><a href="#testimonials">Ce que nos élèves en disent</a></li>
-        <li><a href="#cta">Envie d'essayer ?</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-contact">
-      <h4>Contact</h4>
-      <p><i class="fas fa-envelope"></i> ecolazik@gmail.com</p>
-      <p><i class="fas fa-home"></i> 2, rue Flatters  80000 Amiens</p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 ECOLAZIK. Tous droits réservés.</p>
-  </div>
-</footer>
-  <!-- JS pour effet fondu -->
-  <script>
-    const navbar = document.getElementById("navbar");
-    window.addEventListener("scroll", () => {
-      navbar.classList.toggle("scrolled", window.scrollY > 20);
-    });
-
-    // Ajout de l'effet de translation légère
-    const heroText = document.querySelector(".hero-text");
-
-    window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY;
-      heroText.style.transform = `translateY(${scrollY * 0.3}px)`;
-    });
-  </script>
-
-    <script>
-    const navbar = document.getElementById("navbar");
-    const heroText = document.querySelector(".hero-text");
-
-    window.addEventListener("scroll", () => {
-      navbar.classList.toggle("scrolled", window.scrollY > 20);
-
-      // Parallaxe sur le texte
-      const scrollY = window.scrollY;
-      heroText.style.transform = `translateY(${scrollY * 0.3}px)`;
-    });
-  </script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const services = document.querySelectorAll('.service');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const el = entry.target;
-
-          if (entry.isIntersecting) {
-            el.classList.add('visible');
-          } else {
-            el.classList.remove('visible'); // important pour rejouer
-          }
-        });
-      }, {
-        threshold: 0.2
-      });
-
-      services.forEach((el, i) => {
-        el.style.transitionDelay = `${i * 200}ms`; // effet cascade via CSS
-        observer.observe(el);
-      });
-    });
-  </script>
+</body>
 </body>
