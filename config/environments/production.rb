@@ -12,31 +12,33 @@ Rails.application.configure do
   # Cache activé.
   config.action_controller.perform_caching = true
 
-  # Servir les fichiers statiques (Heroku dépend de ENV).
+  # Servir les fichiers statiques (Heroku utilise cette variable ENV).
   config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
-  config.public_file_server.headers = { "cache-control" => "public, max-age=#{1.year.to_i}" }
+  config.public_file_server.headers = {
+    "Cache-Control" => "public, max-age=#{1.year.to_i}"
+  }
 
   # Stockage fichiers (éphémère sur Heroku !)
   config.active_storage.service = :local
-  # TODO: passe à :amazon ou autre pour du durable.
+  # 👉 change plus tard vers :amazon / :google / :cloudinary
 
-  # SSL (Heroku : ok)
+  # SSL
   config.assume_ssl = true
   config.force_ssl  = false
 
   # Logs
-  config.log_tags = [ :request_id ]
-  logger        = Logger.new($stdout, level: ENV.fetch("RAILS_LOG_LEVEL", "info"))
+  config.log_tags = [:request_id]
+  logger = Logger.new($stdout, level: ENV.fetch("RAILS_LOG_LEVEL", "info"))
   logger.formatter = ::Logger::Formatter.new
   config.logger = ActiveSupport::TaggedLogging.new(logger)
 
-  # Cache store (pas solid_cache si gem retirée)
+  # Cache en mémoire
   config.cache_store = :memory_store
 
-  # Queue adapter simple (on a retiré solid_queue)
+  # Jobs
   config.active_job.queue_adapter = :async
 
-  # Dépréciations : on ne spam pas la prod
+  # Dépréciations : silence en prod
   config.active_support.report_deprecations = false
 
   # Mailer (host dynamique)
@@ -50,11 +52,12 @@ Rails.application.configure do
 
   # Ne pas dumper le schéma après migration
   config.active_record.dump_schema_after_migration = false
+
+  # Hosts autorisés
   config.hosts << "ecolazik.com"
   config.hosts << "www.ecolazik.com"
 
-  config.assets.compile = false
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
-
-  config.action_mailer.default_url_options = { host: "ecolazik.com", protocol: "https" }
+  # 🚨 Supprimé car inutile avec Propshaft :
+  # config.assets.compile = false
+  # config.assets.digest = true
 end

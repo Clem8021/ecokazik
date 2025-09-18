@@ -10,8 +10,6 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder"
-gem "sprockets-rails"
-gem "sassc-rails"
 gem "bootsnap", require: false
 gem "devise", "~> 4.9"
 
@@ -30,8 +28,4 @@ end
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
-end
-
-group :production do
-  gem 'rails_12factor' # si Rails < 5
 end
