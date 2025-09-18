@@ -1,28 +1,18 @@
-// app/javascript/controllers/navbar_controller.js
 import { Controller } from "@hotwired/stimulus"
 
+// Connects to data-controller="menu-burger"
 export default class extends Controller {
-  static targets = ["heroText"]
+  static targets = ["toggle", "sidebar"]
 
   connect() {
-    console.log("✅ Navbar controller connecté")
-
-    window.addEventListener("scroll", this.onScroll.bind(this))
+    console.log("✅ menu_burger_controller connecté !");
   }
 
-  disconnect() {
-    window.removeEventListener("scroll", this.onScroll.bind(this))
-  }
+  toggle() {
+    this.toggleTarget.classList.toggle("open")
+    this.sidebarTarget.classList.toggle("active")
 
-  onScroll() {
-    const navbar = document.getElementById("navbar")
-    if (navbar) {
-      navbar.classList.toggle("scrolled", window.scrollY > 20)
-    }
-
-    if (this.hasHeroTextTarget) {
-      const scrollY = window.scrollY
-      this.heroTextTarget.style.transform = `translateY(${scrollY * 0.3}px)`
-    }
+    const isOpen = this.sidebarTarget.classList.contains("active")
+    this.toggleTarget.setAttribute("aria-expanded", isOpen)
   }
 }

@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   get "testimonials/index"
   # Pages statiques
-  root "landing#index"
+  root "home#index"
   get "home", to: "home#index"
-  get "pages/home"
 
   # Devise (authentification)
   devise_for :users
