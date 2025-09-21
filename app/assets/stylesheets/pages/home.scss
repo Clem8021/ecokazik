@@ -34,7 +34,7 @@ body {
   min-height: 100vh;
   padding: 0;
   text-align: center;
-  background: asset-url('guitare.jpg') no-repeat center center;
+  background-image: image-url("guitare.jpg");
   background-size: cover;
   background-attachment: fixed;
   color: #fff;
