@@ -1,0 +1,80 @@
+/* =============================
+   POPUP RESPONSIVE
+============================= */
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+
+  &.show {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+  }
+}
+
+.popup-window.responsive-popup {
+  background: #fff;
+  color: #222;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.popup-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #00b8a9;
+}
+
+.popup-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.close-popup {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #ff4444;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+  .popup-window.responsive-popup {
+    padding: 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .popup-title {
+    font-size: 1.3rem;
+  }
+}
