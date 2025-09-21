@@ -38,10 +38,8 @@
   <div class="container">
     <h2>💬 Ce que disent nos élèves</h2>
 
-    <!-- On déclare Stimulus ici -->
-    <div class="testimonial-slider" data-controller="testimonials">
-
-      <!-- Track avec target -->
+    <div class="testimonial-slider">
+      <!-- track -->
       <div class="testimonial-track" data-testimonials-target="track">
         <% @testimonials.each do |testimonial| %>
           <div class="testimonial-slide" data-testimonials-target="slide">
@@ -53,16 +51,17 @@
         <% end %>
       </div>
 
-      <!-- Boutons reliés aux actions Stimulus -->
-      <button class="slider-btn prev" data-action="click->testimonials#prev">❮</button>
-      <button class="slider-btn next" data-action="click->testimonials#next">❯</button>
-
-      <!-- Les dots seront générés en JS -->
-      <div class="slider-dots" data-testimonials-target="dots"></div>
+      <!-- contrôles -->
+      <div class="slider-controls">
+        <button class="slider-btn prev" data-action="click->testimonials#prev">❮</button>
+        <button class="slider-btn next" data-action="click->testimonials#next">❯</button>
+      </div>
     </div>
+
+    <!-- dots -->
+    <div class="slider-dots" data-testimonials-target="dots"></div>
   </div>
 </section>
-
   <!-- CTA Section -->
   <section class="cta" id="cta">
     <div class="container">
