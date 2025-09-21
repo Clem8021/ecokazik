@@ -1,6 +1,9 @@
   <!-- Hero Section -->
-  <header class="hero-section fade-in" id="hero">
-    <img src="<%= asset_path('guitare.jpg') %>" alt="Fond guitare" class="hero-bg">
+  <header class="hero-section fade-in" id="hero" data-controller="hero">
+    <img src="<%= asset_path('guitare.jpg') %>"
+       alt="Fond guitare"
+       class="hero-bg"
+       data-hero-target="bg">
     <div class="container hero-text" data-navbar-target="heroText">
       <h1>
         Eco<span class="accent">lā</span>Zik

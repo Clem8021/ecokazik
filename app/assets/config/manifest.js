@@ -8,3 +8,4 @@
   //= link controllers/navbar_controller.js
   //= link controllers/services_controller.js
   //= link controllers/menu_burger_controller.js
+  //= link controllers/hero_controller.js
