@@ -34,26 +34,34 @@
   </section>
 
   <!-- Testimonials Section -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <h2>💬 Ce que disent nos élèves</h2>
-      <div class="testimonial-slider">
-        <div class="testimonial-track">
-          <% @testimonials.each do |testimonial| %>
-            <div class="testimonial-slide">
-              <blockquote>
-                <p><%= testimonial.content %></p>
-                <cite>– <%= testimonial.author %></cite>
-              </blockquote>
-            </div>
-          <% end %>
-        </div>
-        <button class="slider-btn prev">❮</button>
-        <button class="slider-btn next">❯</button>
+ <section class="testimonials" id="testimonials" data-controller="testimonials">
+  <div class="container">
+    <h2>💬 Ce que disent nos élèves</h2>
+
+    <!-- On déclare Stimulus ici -->
+    <div class="testimonial-slider" data-controller="testimonials">
+
+      <!-- Track avec target -->
+      <div class="testimonial-track" data-testimonials-target="track">
+        <% @testimonials.each do |testimonial| %>
+          <div class="testimonial-slide" data-testimonials-target="slide">
+            <blockquote>
+              <p><%= testimonial.content %></p>
+              <cite>– <%= testimonial.author %></cite>
+            </blockquote>
+          </div>
+        <% end %>
       </div>
-      <div class="slider-dots"></div>
+
+      <!-- Boutons reliés aux actions Stimulus -->
+      <button class="slider-btn prev" data-action="click->testimonials#prev">❮</button>
+      <button class="slider-btn next" data-action="click->testimonials#next">❯</button>
+
+      <!-- Les dots seront générés en JS -->
+      <div class="slider-dots" data-testimonials-target="dots"></div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- CTA Section -->
   <section class="cta" id="cta">
