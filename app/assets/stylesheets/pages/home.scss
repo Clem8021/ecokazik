@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Century Gothic", sans-serif;
   background-color: #f9f9f9;
   color: #222;
   line-height: 1.6;
@@ -72,20 +72,6 @@ body {
     max-width: 900px;
     padding: 0 1.5rem;
 
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      color: #00ffcc;
-      text-shadow: 0 0 8px rgba(0, 255, 204, 0.6),
-                   0 0 16px rgba(0, 255, 204, 0.4),
-                   0 0 24px rgba(0, 255, 204, 0.2);
-      letter-spacing: 2px;
-      margin-bottom: 1rem;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-
     p {
       font-size: clamp(1rem, 2.5vw, 1.5rem);
       font-weight: 400;
@@ -113,8 +99,35 @@ body {
   }
 }
 
-// Animation glow du h1
-@keyframes glow {
+.logo {
+  font-family: "Century Gothic", sans-serif;
+  font-weight: bold;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00ffcc; // couleur par défaut turquoise
+
+  .eco,
+  .zik {
+    color: #00ffcc;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.8),
+                 0 0 20px rgba(0, 255, 204, 0.6),
+                 0 0 30px rgba(0, 255, 204, 0.4);
+    animation: glowTurquoise 2s ease-in-out infinite alternate;
+  }
+
+  .a {
+    color: #ff2a2a; // rouge vif
+    text-shadow: 0 0 10px rgba(255, 42, 42, 0.8),
+                 0 0 20px rgba(255, 42, 42, 0.6),
+                 0 0 30px rgba(255, 42, 42, 0.4);
+    animation: glowRed 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes glowTurquoise {
   from {
     text-shadow: 0 0 8px rgba(0, 255, 204, 0.6),
                  0 0 16px rgba(0, 255, 204, 0.4),
@@ -124,6 +137,19 @@ body {
     text-shadow: 0 0 12px rgba(0, 255, 204, 0.9),
                  0 0 24px rgba(0, 255, 204, 0.6),
                  0 0 32px rgba(0, 255, 204, 0.4);
+  }
+}
+
+@keyframes glowRed {
+  from {
+    text-shadow: 0 0 8px rgba(255, 42, 42, 0.6),
+                 0 0 16px rgba(255, 42, 42, 0.4),
+                 0 0 24px rgba(255, 42, 42, 0.2);
+  }
+  to {
+    text-shadow: 0 0 12px rgba(255, 42, 42, 0.9),
+                 0 0 24px rgba(255, 42, 42, 0.6),
+                 0 0 32px rgba(255, 42, 42, 0.4);
   }
 }
 
