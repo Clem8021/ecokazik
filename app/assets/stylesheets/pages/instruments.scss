@@ -1,0 +1,338 @@
+/* =============================
+   PAGE INSTRUMENTS – CARROUSEL
+============================= */
+
+.instruments-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1a2340 0%, #050811 55%, #020309 100%);
+  color: #f5f5f5;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* CONTAINER GÉNÉRAL */
+.instruments-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* TITRE PRINCIPAL */
+.instruments-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  color: #00ffcc;
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.7),
+               0 0 25px rgba(0, 255, 204, 0.4);
+}
+
+.instruments-subtitle {
+  font-size: 1rem;
+  color: #c7c7c7;
+  max-width: 650px;
+  margin: 0 auto 3rem auto;
+}
+
+/* =============================
+   CARROUSEL
+============================= */
+
+.instruments-carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+/* Track = bande qui glisse horizontalement */
+.instruments-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+/* Une carte = un instrument */
+.instrument-card {
+  flex: 0 0 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+/* Contenu de la carte */
+.instrument-inner {
+  background: linear-gradient(135deg, #101522, #181f33);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  max-width: 850px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.7fr);
+  gap: 2rem;
+  align-items: center;
+  border: 1px solid rgba(0, 255, 204, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* léger glow en fond */
+.instrument-inner::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at top left, rgba(0, 255, 204, 0.18), transparent 60%);
+  opacity: 0.8;
+  z-index: 0;
+}
+
+/* Z-index pour le vrai contenu */
+.instrument-visual,
+.instrument-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* IMAGE / VISUEL DE L’INSTRUMENT */
+.instrument-visual {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+.instrument-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: saturate(1.15);
+}
+
+/* petit filtre glow au survol */
+.instrument-inner:hover .instrument-visual img {
+  transform: scale(1.06);
+  filter: saturate(1.2) brightness(1.05);
+}
+
+/* TAG EN HAUT À GAUCHE SUR L’IMAGE (ex : “Piano”, “Batterie”) */
+.instrument-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  color: #00ffcc;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* CONTENU TEXTE */
+.instrument-content {
+  text-align: left;
+  color: #f7f7f7;
+}
+
+.instrument-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .instrument-emoji {
+    font-size: 1.4rem;
+  }
+}
+
+.instrument-levels {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.instrument-level-pill {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 255, 204, 0.45);
+  color: #aefaf0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.instrument-description {
+  font-size: 0.95rem;
+  color: #d6d6d6;
+  margin-bottom: 1rem;
+}
+
+/* liste style “atouts” */
+.instrument-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.3rem 0;
+
+  li {
+    font-size: 0.9rem;
+    color: #c5f7ec;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    &::before {
+      content: "•";
+      color: #00ffcc;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+  }
+}
+
+.instrument-extra {
+  font-size: 0.9rem;
+  color: #bbbbbb;
+  font-style: italic;
+}
+
+/* CTA léger dans la carte */
+.instrument-cta {
+  margin-top: 1.3rem;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #00ffcc;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 255, 204, 0.4);
+    background: rgba(0, 0, 0, 0.35);
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+      background: rgba(0, 255, 204, 0.12);
+      transform: translateY(-1px);
+      box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+    }
+  }
+}
+
+/* =============================
+   CONTRÔLES CARROUSEL
+============================= */
+
+.instruments-controls {
+  position: relative;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* BOUTONS PRÉCÉDENT / SUIVANT */
+.instruments-arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 255, 204, 0.4);
+  background: radial-gradient(circle at 30% 30%, rgba(0, 255, 204, 0.3), rgba(5, 8, 20, 0.95));
+  color: #e5fffb;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.3rem;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.7);
+  }
+}
+
+/* DOTS */
+.instruments-dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.instruments-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 255, 204, 0.4);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 0 rgba(0, 255, 204, 0);
+
+  &.is-active {
+    width: 22px;
+    background: #00ffcc;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.8),
+                0 0 18px rgba(0, 255, 204, 0.5);
+  }
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+
+@media (max-width: 900px) {
+  .instrument-inner {
+    grid-template-columns: 1fr;
+    padding: 1.7rem;
+  }
+
+  .instrument-visual img {
+    max-height: 220px;
+  }
+
+  .instrument-content {
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .instruments-page {
+    padding: 3rem 1rem;
+  }
+
+  .instrument-inner {
+    padding: 1.3rem;
+  }
+
+  .instrument-visual img {
+    max-height: 200px;
+  }
+
+  .instruments-controls {
+    gap: 1.2rem;
+  }
+
+  .instruments-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,33 @@
+<section class="instruments-page">
+  <div class="instruments-container" data-controller="instruments">
+    <h1 class="instruments-title">Nos instruments</h1>
+    <p class="instruments-subtitle">
+      Piano, batterie, djembé, guitare, basse, ukulélé, chant et saxophone…
+      choisis ton terrain de jeu !
+    </p>
+
+    <div class="instruments-carousel">
+      <div class="instruments-track" data-instruments-target="track">
+        <% @instruments.each do |instrument| %>
+          <div class="instrument-card">
+            <div class="instrument-inner">
+              <div class="instrument-visual">
+                <%= image_tag instrument[:image_path], alt: instrument[:name] %>
+                  <span class="instrument-tag"><%= instrument[:name] %></span>
+              </div>
+              <div class="instrument-content">
+                <!-- etc. -->
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="instruments-controls">
+      <button class="instruments-arrow" data-action="click->instruments#prev">❮</button>
+      <div class="instruments-dots" data-instruments-target="dots"></div>
+      <button class="instruments-arrow" data-action="click->instruments#next">❯</button>
+    </div>
+  </div>
+</section>

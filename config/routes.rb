@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     # Tu peux ajouter ici d’autres ressources admin plus tard
   end
 
+  get "instruments", to: "instruments#index"
+
   # Dashboard et autres pages
   get "dashboard/show"
   get "badges/index"
