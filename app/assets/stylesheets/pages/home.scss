@@ -505,3 +505,196 @@ body {
     font-size: 4rem;
   }
 }
+
+/* =============================
+   RESPONSIVE - TABLETTES
+============================= */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .hero-section {
+    min-height: 80vh;
+
+    .hero-text {
+      padding: 0 1rem;
+    }
+  }
+
+  .services {
+    padding: 3.5rem 1.5rem;
+
+    .service {
+      padding: 1.8rem;
+    }
+  }
+
+  .jobs {
+    padding: 4.5rem 1.5rem;
+
+    .jobs-content {
+      padding: 2.5rem 2rem;
+    }
+  }
+
+  .cta {
+    padding: 4.5rem 0;
+  }
+}
+
+/* =============================
+   RESPONSIVE - MOBILES
+============================= */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero-section {
+    min-height: 70vh;
+    text-align: center;
+    padding: 4rem 0;
+
+    .hero-bg {
+      position: absolute; // déjà dans ton code, on garde
+    }
+
+    .hero-text {
+      padding: 0 1rem;
+
+      h1 {
+        font-size: clamp(1.8rem, 6vw, 2.4rem);
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      .btn-primary {
+        width: 100%;
+        max-width: 260px;
+      }
+    }
+  }
+
+  .services {
+    padding: 3rem 1rem;
+
+    .services-grid {
+      grid-template-columns: 1fr; // une colonne sur mobile
+    }
+
+    .service {
+      padding: 1.6rem;
+    }
+  }
+
+  .jobs {
+    padding: 4rem 1.2rem;
+
+    .jobs-content {
+      padding: 2.4rem 1.6rem;
+      text-align: center;
+    }
+
+    .jobs-grid {
+      grid-template-columns: 1fr; // les deux blocs l'un sous l'autre
+      gap: 1.8rem;
+    }
+
+    .jobs-block {
+      text-align: left;
+    }
+
+    .jobs-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .cta {
+    padding: 4rem 0;
+
+    h2 {
+      font-size: clamp(1.6rem, 5vw, 2.1rem);
+      padding: 0 1rem;
+    }
+
+    .btn-primary {
+      width: 100%;
+      max-width: 260px;
+    }
+  }
+
+  .popup-window {
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    max-width: 90%;
+  }
+
+  .close-popup {
+    font-size: 1.5rem;
+  }
+
+  .footer-socials {
+    text-align: center;
+
+    a {
+      margin-right: 0.7rem;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+/* =============================
+   RESPONSIVE - PETITS ÉCRANS
+============================= */
+@media (max-width: 480px) {
+  html {
+    font-size: 15px; // réduit légèrement la base
+  }
+
+  .hero-section {
+    padding: 3rem 0;
+
+    .hero-text {
+      p {
+        font-size: 0.9rem;
+      }
+
+      .btn-primary {
+        padding: 0.85rem 1.6rem;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .services .service {
+    padding: 1.4rem;
+  }
+
+  .jobs {
+    padding: 3.5rem 1rem;
+
+    .jobs-content {
+      padding: 2rem 1.2rem;
+    }
+
+    .jobs-intro {
+      font-size: 0.95rem;
+    }
+
+    .jobs-block li {
+      font-size: 0.9rem;
+    }
+  }
+
+  .popup-window {
+    padding: 1.2rem;
+  }
+
+  .cta h2 {
+    font-size: 1.5rem;
+  }
+}
