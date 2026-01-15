@@ -1,18 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="menu-burger"
 export default class extends Controller {
-  static targets = ["toggle", "sidebar"]
+  static targets = ["menu"]
 
-  connect() {
-    console.log("✅ menu_burger_controller connecté !");
-  }
+  toggle(event) {
+    const isOpen = this.menuTarget.classList.toggle("is-open")
 
-  toggle() {
-    this.toggleTarget.classList.toggle("open")
-    this.sidebarTarget.classList.toggle("active")
-
-    const isOpen = this.sidebarTarget.classList.contains("active")
-    this.toggleTarget.setAttribute("aria-expanded", isOpen)
+    // Accessibilité
+    event.currentTarget.setAttribute("aria-expanded", isOpen)
   }
 }

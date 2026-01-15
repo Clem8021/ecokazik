@@ -1,0 +1,172 @@
+/* =============================
+   HERO COURS
+============================= */
+.cours-hero {
+  background: linear-gradient(135deg, #000, #00332e);
+  color: #fff;
+  padding: 6rem 0;
+  text-align: center;
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+    color: #00ffcc;
+  }
+
+  p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #eee;
+  }
+}
+
+/* =============================
+   SECTIONS
+============================= */
+.cours-section {
+  padding: 5rem 0;
+
+  h2 {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin-bottom: 3rem;
+    color: #00b8a9;
+  }
+}
+
+/* =============================
+   INSTRUMENTS (SANS IMAGES)
+============================= */
+.instrument-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.2rem 2rem;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 255, 204, 0.4),
+      rgba(0, 184, 169, 0.4)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 255, 204, 0.25);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem; /* espace avec le p */
+    color: #00b8a9;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0; /* évite les décalages */
+  }
+}
+
+/* =============================
+   ATELIERS
+============================= */
+.ateliers {
+  background: #f2fdfb;
+}
+
+.ateliers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.atelier-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2.2rem;
+  text-align: center;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #00b8a9;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #444;
+  }
+}
+
+/* =============================
+   BOUTON RETOUR ACCUEIL
+============================= */
+.back-home-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+}
+
+.back-home-btn {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  background: #00ffcc;
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+
+  &:hover {
+    background: #00ccb3;
+    transform: translateX(-4px);
+  }
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 768px) {
+  .cours-hero {
+    padding: 4rem 1rem;
+  }
+
+  .instrument-card img {
+    height: 160px;
+  }
+}

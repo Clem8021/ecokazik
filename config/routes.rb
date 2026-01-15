@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get "testimonials/index"
   # Pages statiques
   root "home#index"
-  get "home", to: "home#index"
 
   # Devise (authentification)
   devise_for :users
@@ -21,6 +20,11 @@ Rails.application.routes.draw do
 
   get "instruments", to: "instruments#index"
 
+  get "jobs", to: "jobs#index"
+
+  get "cours", to: "cours#index"
+
+  get "tarifs", to:"tarifs#index"
   # Dashboard et autres pages
   get "dashboard/show"
   get "badges/index"

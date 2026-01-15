@@ -1,0 +1,113 @@
+/* =============================
+   HERO TARIFS
+============================= */
+.tarifs-hero {
+  background: linear-gradient(135deg, #002c27, #000);
+  color: #fff;
+  padding: 6rem 0;
+  text-align: center;
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+    color: #00ffcc;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #eee;
+  }
+}
+
+/* =============================
+   TARIFS
+============================= */
+.tarifs-section {
+  padding: 5rem 0;
+}
+
+.tarifs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+}
+
+.tarif-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 255, 204, 0.25);
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #00b8a9;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+}
+
+.tarif-price {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+/* =============================
+   BADGE
+============================= */
+.badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #00ffcc;
+  color: #000;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.highlight {
+  border: 2px solid #00ffcc;
+}
+
+/* =============================
+   INFOS
+============================= */
+.tarifs-info {
+  background: #f2fdfb;
+  padding: 3rem 0;
+  text-align: center;
+
+  p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+  }
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 768px) {
+  .tarifs-hero {
+    padding: 4rem 1rem;
+  }
+
+  .tarif-price {
+    font-size: 2rem;
+  }
+}

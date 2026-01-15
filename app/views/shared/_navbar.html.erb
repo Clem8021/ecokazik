@@ -1,0 +1,20 @@
+<nav class="floating-navbar" data-controller="navbar">
+  <button
+    class="nav-toggle"
+    aria-label="Ouvrir le menu"
+    aria-expanded="false"
+    data-action="click->navbar#toggle">
+    ☰
+  </button>
+
+  <ul class="navbar-links"
+      data-navbar-target="menu"
+      id="primary-menu">
+    <li><%= link_to "Accueil", root_path %></li>
+    <li><a href="#services">Nos atouts</a></li>
+    <li><a href="#testimonials">Ce que nos élèves en disent</a></li>
+    <li><%= link_to "Nos tarifs", tarifs_path %></li>
+    <li><%= link_to "Cours & Ateliers", cours_path %></li>
+    <li><%= link_to "Jobs", jobs_path %></li>
+  </ul>
+</nav>

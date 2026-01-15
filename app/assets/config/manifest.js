@@ -7,6 +7,6 @@
 //= link controllers/popup_controller.js
 //= link controllers/navbar_controller.js
 //= link controllers/services_controller.js
-//= link controllers/menu_burger_controller.js
 //= link controllers/hero_controller.js
 //=link controllers/instruments_carousel_controller.js
+//=link controllers/navbar_controller.js
