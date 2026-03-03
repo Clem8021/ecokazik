@@ -28,29 +28,6 @@
 </head>
 
   <body>
-    <!-- POPUP ANNONCE -->
-    <div id="popup" class="popup" data-controller="popup">
-      <div class="popup-window responsive-popup" role="dialog" aria-modal="true" data-popup-target="window">
-        <span class="close-popup" data-action="click->popup#close">&times;</span>
-        <h2 class="popup-title">📢 Annonce importante</h2>
-        <div class="popup-content">
-          <p>👉 Comme vous avez pu le lire sur les réseaux sociaux,
-          <strong>BOUTIKAZIK a malheureusement fermé ses portes définitivement.</strong></p>
-
-          <p>C’est un coup dur pour notre école.</p>
-
-          <p>🎶 Mais l’aventure continue ! Avec <strong>130 élèves</strong> et <strong>8 professeurs passionnés</strong>,
-          nous sommes plus motivés que jamais et avons déjà trouvé un nouveau lieu pour vous accueillir dans les meilleures conditions.</p>
-
-          <p>👉 D’ici là, les cours ont toujours lieu au 12, rue flatters et <strong>les inscriptions sont permanentes.</strong> </p>
-
-          <p>Nous travaillons sans relâche pour préparer la suite. Mais rien ne sera possible sans votre soutien !</p>
-
-          <strong>L’équipe Ecolazik</strong></p>
-        </div>
-      </div>
-    </div>
-
     <%= yield %>
 
     <%= render "shared/footer" %>
