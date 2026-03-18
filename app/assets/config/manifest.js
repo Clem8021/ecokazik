@@ -10,3 +10,4 @@
 //= link controllers/hero_controller.js
 //=link controllers/instruments_carousel_controller.js
 //=link controllers/navbar_controller.js
+//= link controllers/loader_controller.js
