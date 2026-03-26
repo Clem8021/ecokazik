@@ -9,8 +9,6 @@
       <div class="logo">
         <span class="eco">ECOL</span><span class="a">ā</span><span class="zik">ZIK</span>
       </div>
-      <p>Des cours flexibles et personnalisés à Amiens</p>
-      <a href="mailto:ecolazik@gmail.com" class="btn-primary">Réserve ton cours d'essai</a>
     </div>
   </header>
 
@@ -19,19 +17,19 @@
       <div class="container services-grid">
         <div class="service" data-services-target="service">
         <img src="<%= asset_path('flexibilite.png') %>" alt="Flexibilité" class="service-icon">
-        <h2>⏰ Flexibilité</h2>
+        <h2>Flexibilité</h2>
         <p>Réserve ton cours selon ton emploi du temps, en toute liberté.</p>
       </div>
 
       <div class="service" data-services-target="service">
         <img src="<%= asset_path('professeur.png') %>" alt="Qualité pédagogique" class="service-icon">
-        <h2>🎓 Qualité pédagogique</h2>
+        <h2>Qualité pédagogique</h2>
         <p>Des professeurs passionnés et expérimentés dans chaque discipline.</p>
       </div>
 
       <div class="service" data-services-target="service">
         <img src="<%= asset_path('groupe.png') %>" alt="Ambiance conviviale" class="service-icon">
-        <h2>🤝 Ambiance conviviale</h2>
+        <h2>Ambiance conviviale</h2>
         <p>Un cadre chaleureux pour apprendre avec plaisir et motivation.</p>
       </div>
     </div>
@@ -40,16 +38,16 @@
   <!-- Testimonials Section -->
  <section class="testimonials" id="testimonials" data-controller="testimonials">
   <div class="container">
-    <h2>💬 Ce que disent nos élèves</h2>
+    <h2>Ce que disent nos élèves</h2>
 
     <div class="testimonial-slider">
       <!-- track -->
       <div class="testimonial-track" data-testimonials-target="track">
-        <% @testimonials.each do |testimonial| %>
-          <div class="testimonial-slide" data-testimonials-target="slide">
+        <% @testimonials.each do |t| %>
+          <div class="testimonial-slide">
             <blockquote>
-              <p><%= testimonial.content %></p>
-              <cite>– <%= testimonial.author %></cite>
+              <p><%= t["text"] %></p>
+              <cite>– <%= t["author_name"] %></cite>
             </blockquote>
           </div>
         <% end %>
