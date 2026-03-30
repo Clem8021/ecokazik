@@ -41,8 +41,10 @@ export default class extends Controller {
   }
 
   updateSlide() {
-    this.trackTarget.style.transform = `translateX(-${100 * this.currentIndex}%)`
-    this.updateDots()
+    const slideWidth = this.slideTargets[0].offsetWidth
+    const offset = this.currentIndex * slideWidth
+
+    this.trackTarget.style.transform = `translateX(-${offset}px)`
   }
 
   updateDots() {
