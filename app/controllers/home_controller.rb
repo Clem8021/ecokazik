@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @testimonials = Testimonial.all
+    @testimonials = GoogleReviewsService.fetch_reviews
   end
 end

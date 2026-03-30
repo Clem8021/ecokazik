@@ -14,6 +14,7 @@ gem "jbuilder"
 gem "bootsnap", require: false
 gem "devise", "~> 4.9"
 gem "stripe"
+gem 'dotenv-rails'
 
 
 group :development, :test do

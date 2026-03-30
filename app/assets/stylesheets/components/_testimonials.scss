@@ -38,23 +38,23 @@
   .testimonial-track {
     display: flex;
     transition: transform 0.6s ease;
+    width: fit-content; // ✅ IMPORTANT
   }
 
   .testimonial-slide {
     flex: 0 0 100%;
+    width: 100%;
     padding: 2rem;
     box-sizing: border-box;
 
-    blockquote {
-      font-style: italic;
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      line-height: 1.6;
-    }
+    display: flex;              // ✅
+    justify-content: center;    // ✅
+    align-items: center;        // ✅
+    text-align: center;         // ✅
 
-    cite {
-      display: block;
-      margin-top: 1rem;
-      font-weight: bold;
+    blockquote {
+      max-width: 500px;         // ✅ évite texte trop large
+      margin: 0 auto;
     }
   }
 

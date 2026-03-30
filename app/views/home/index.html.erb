@@ -36,34 +36,37 @@
   </section>
 
   <!-- Testimonials Section -->
- <section class="testimonials" id="testimonials" data-controller="testimonials">
-  <div class="container">
-    <h2>Ce que disent nos élèves</h2>
+  <section class="testimonials" id="testimonials" data-controller="testimonials">
+    <div class="container">
+      <h2>Ce que disent nos élèves</h2>
 
-    <div class="testimonial-slider">
-      <!-- track -->
-      <div class="testimonial-track" data-testimonials-target="track">
-        <% @testimonials.each do |t| %>
-          <div class="testimonial-slide">
-            <blockquote>
-              <p><%= t["text"] %></p>
-              <cite>– <%= t["author_name"] %></cite>
-            </blockquote>
-          </div>
-        <% end %>
-      </div>
-      <div class="slider-dots" data-testimonials-target="dots"></div>
+      <div class="testimonial-slider">
+        <!-- track -->
+        <div class="testimonial-track" data-testimonials-target="track">
 
-      <div class="big-separator"></div>
-      <!-- contrôles -->
-      <div class="slider-controls">
-        <button class="slider-btn prev" data-action="click->testimonials#prev">❮</button>
-        <button class="slider-btn next" data-action="click->testimonials#next">❯</button>
+          <% @testimonials.each do |t| %>
+            <div class="testimonial-slide" data-testimonials-target="slide">
+              <blockquote>
+                <p><%= t[:content] %></p>
+                <cite>– <%= t[:author] %></cite>
+              </blockquote>
+            </div>
+          <% end %>
+
+        </div>
+
+        <div class="slider-dots" data-testimonials-target="dots"></div>
+
+        <div class="big-separator"></div>
+
+        <!-- contrôles -->
+        <div class="slider-controls">
+          <button class="slider-btn prev" data-action="click->testimonials#prev">❮</button>
+          <button class="slider-btn next" data-action="click->testimonials#next">❯</button>
+        </div>
       </div>
     </div>
-    <!-- dots -->
-  </div>
-</section>
+  </section>
   <!-- CTA Section -->
   <section class="cta" id="cta">
     <div class="container">

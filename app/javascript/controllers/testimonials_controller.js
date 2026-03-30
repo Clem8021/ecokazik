@@ -5,14 +5,19 @@ export default class extends Controller {
   static targets = ["track", "slide", "dots"]
 
   connect() {
+    console.log("TESTIMONIALS CONNECTED")
+
     this.currentIndex = 0
     this.slideCount = this.slideTargets.length
 
-    // Crée les dots une fois
+    console.log("Slides count:", this.slideCount)
+    console.log("Slides:", this.slideTargets)
+
+    if (this.slideCount === 0) return
+
     this.createDots()
     this.updateDots()
-
-    // Auto-play
+    this.updateSlide()
     this.startAutoPlay()
   }
 
