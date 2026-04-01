@@ -1,4 +1,3 @@
-// app/javascript/controllers/testimonials_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
@@ -11,18 +10,27 @@ export default class extends Controller {
     this.slideCount = this.slideTargets.length
 
     console.log("Slides count:", this.slideCount)
-    console.log("Slides:", this.slideTargets)
 
     if (this.slideCount === 0) return
 
     this.createDots()
     this.updateDots()
-    this.updateSlide()
+
+    // 🔥 FIX MOBILE : attendre que le layout soit calculé
+    setTimeout(() => {
+      this.updateSlide()
+    }, 100)
+
+    // 🔥 recalcul si resize (mobile, rotation, etc.)
+    this.handleResize = this.updateSlide.bind(this)
+    window.addEventListener("resize", this.handleResize)
+
     this.startAutoPlay()
   }
 
   disconnect() {
     this.stopAutoPlay()
+    window.removeEventListener("resize", this.handleResize)
   }
 
   next() {
@@ -41,27 +49,39 @@ export default class extends Controller {
   }
 
   updateSlide() {
+    if (!this.slideTargets[0]) return
+
     const slideWidth = this.slideTargets[0].offsetWidth
+
+    // 🔥 sécurité mobile
+    if (slideWidth === 0) return
+
     const offset = this.currentIndex * slideWidth
 
     this.trackTarget.style.transform = `translateX(-${offset}px)`
+
+    this.updateDots()
   }
 
   updateDots() {
+    if (!this.dotElements) return
+
     this.dotElements.forEach((dot, i) => {
       dot.classList.toggle("active", i === this.currentIndex)
     })
   }
 
   createDots() {
-    this.dotsTarget.innerHTML = "" // reset
+    this.dotsTarget.innerHTML = ""
+
     this.slideTargets.forEach((_, i) => {
       const button = document.createElement("button")
       button.dataset.index = i
       button.dataset.action = "click->testimonials#goTo"
       this.dotsTarget.appendChild(button)
     })
-    this.dotElements = this.dotsTarget.querySelectorAll("button") // ✅ variable interne
+
+    this.dotElements = this.dotsTarget.querySelectorAll("button")
   }
 
   startAutoPlay() {
