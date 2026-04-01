@@ -4,26 +4,20 @@ export default class extends Controller {
   static targets = ["track", "slide", "dots"]
 
   connect() {
-    console.log("TESTIMONIALS CONNECTED")
-
     this.currentIndex = 0
     this.slideCount = this.slideTargets.length
-
-    console.log("Slides count:", this.slideCount)
 
     if (this.slideCount === 0) return
 
     this.createDots()
     this.updateDots()
 
-    // 🔥 FIX MOBILE : attendre que le layout soit calculé
-    setTimeout(() => {
+    // 🔥 attendre que le layout soit prêt
+    requestAnimationFrame(() => {
       this.updateSlide()
-    }, 100)
+    })
 
-    // 🔥 recalcul si resize (mobile, rotation, etc.)
-    this.handleResize = this.updateSlide.bind(this)
-    window.addEventListener("resize", this.handleResize)
+    window.addEventListener("resize", this.updateSlide.bind(this))
 
     this.startAutoPlay()
   }
@@ -49,18 +43,14 @@ export default class extends Controller {
   }
 
   updateSlide() {
-    if (!this.slideTargets[0]) return
+    const slider = this.trackTarget.parentElement
+    const sliderWidth = slider.offsetWidth
 
-    const slideWidth = this.slideTargets[0].offsetWidth
+    if (sliderWidth === 0) return
 
-    // 🔥 sécurité mobile
-    if (slideWidth === 0) return
-
-    const offset = this.currentIndex * slideWidth
+    const offset = this.currentIndex * sliderWidth
 
     this.trackTarget.style.transform = `translateX(-${offset}px)`
-
-    this.updateDots()
   }
 
   updateDots() {
