@@ -9,15 +9,16 @@ export default class extends Controller {
 
     if (this.slideCount === 0) return
 
+    this.handleResize = this.updateSlide.bind(this)
+
     this.createDots()
     this.updateDots()
 
-    // 🔥 attendre que le layout soit prêt
     requestAnimationFrame(() => {
       this.updateSlide()
     })
 
-    window.addEventListener("resize", this.updateSlide.bind(this))
+    window.addEventListener("resize", this.handleResize)
 
     this.startAutoPlay()
   }
@@ -49,8 +50,9 @@ export default class extends Controller {
     if (sliderWidth === 0) return
 
     const offset = this.currentIndex * sliderWidth
-
     this.trackTarget.style.transform = `translateX(-${offset}px)`
+
+    this.updateDots()
   }
 
   updateDots() {
