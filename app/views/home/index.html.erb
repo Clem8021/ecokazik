@@ -47,8 +47,8 @@
           <% @testimonials.each do |t| %>
             <div class="testimonial-slide" data-testimonials-target="slide">
               <blockquote>
-                <p><%= t.content %></p>
-                <cite>– <%= t.author %></cite>
+                <p><%= t[:content] %></p>
+                <cite>– <%= t[:author] %></cite>
               </blockquote>
             </div>
           <% end %>
