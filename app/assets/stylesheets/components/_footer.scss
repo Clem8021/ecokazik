@@ -1,5 +1,9 @@
 /* FOOTER GLOBAL */
 
+html {
+  scroll-behavior: smooth;
+}
+
 .site-footer {
   background: #111;
   color: #eee;
@@ -70,6 +74,10 @@
   margin-top: 0.8rem;
 }
 
+.footer-logo a {
+  text-decoration: none;
+  color: inherit;
+}
 /* TITRES */
 
 .footer-links h4,
